@@ -3,9 +3,9 @@
 import React from "react";
 import Header from "@/app/shared/Header";
 import Footer from "@/app/shared/Footer";
-import DashBoard from "@/components/dashboard/DashBoard";
+import DashBoard from "../dashboard/DashBoard";
 
-const Home = () => {
+const LoginLayout = () => {
     return (
       <div className="flex overflow-hidden flex-col bg-zinc-100">
         
@@ -17,4 +17,4 @@ const Home = () => {
       );
 };
 
-export default Home;
+export default LoginLayout;

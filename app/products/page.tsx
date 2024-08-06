@@ -1,8 +1,30 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
+import CustomizeComponent from "@/components/customise/Customise";
+import Header from '../shared/Header';
+import Footer from '../shared/Footer';
+import { useGetProductsQuery  } from '@/redux/products/products';
+
+
 
 const Products = () => {
+  const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(null);
+
+  useEffect(() => {
+  if(products){
+    console.log(products,"products")
+  } else{
+    console.log(error,"error")
+  }
+  }, [products])
+  
+
   return (
-    <div>Products</div>
+    <div className="flex overflow-hidden flex-col bg-zinc-100">
+    <Header/>
+    <CustomizeComponent/>
+    <Footer/>
+    </div>
   )
 }
 

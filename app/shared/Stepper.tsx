@@ -1,16 +1,10 @@
 "use client";
-
 import { stepperItems } from "@/constants/dashboard";
-import React, { HTMLAttributes } from "react";
-
-
-export interface StepperProps extends HTMLAttributes<HTMLHeadingElement> {
-    activeTab?: number;
-}
+import React from "react";
+import { StepperProps } from '@/types/dashboard'
 
 const Stepper: React.FC<StepperProps> = ({
     activeTab = 1
-
 }) => {
     return (
         <ol className="items-center w-full space-y-4 sm:flex sm:space-x-16 sm:space-y-0 rtl:space-x-reverse">

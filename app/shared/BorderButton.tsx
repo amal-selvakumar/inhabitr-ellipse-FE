@@ -1,10 +1,7 @@
 "use client";
-import React, { HTMLAttributes, ReactNode } from "react";
+import React from "react";
+import { BorderButtonProps } from '@/types/dashboard'
 
-export interface BorderButtonProps extends HTMLAttributes<HTMLHeadingElement> {
-    className?: string;
-    desc?: ReactNode;
-  }
   
   const BorderButton: React.FC<BorderButtonProps> = ({
     className = "mb-10 md:mb-12 text-neutral-900 dark:text-neutral-50",

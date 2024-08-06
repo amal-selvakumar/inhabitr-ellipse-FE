@@ -11,7 +11,7 @@ export interface BorderButtonProps extends HTMLAttributes<HTMLHeadingElement> {
     desc = ''
   }) => {
     return (
-        <div className="grid justify-center items-center border p-4 text-base text-amber-300 uppercase rounded-full border-amber-300 ">
+        <div className="grid justify-center items-center border p-4 text-base cursor-pointer text-amber-300 uppercase rounded-full border-amber-300 ">
            {desc}
         </div>
     )

@@ -13,7 +13,7 @@ const ButtonComponent: React.FC<ButtonProps> = ({
     isDisable = false
 }) => {
     return (
-        <div className={`px-16 py-3 my-auto text-base font-medium whitespace-nowrap rounded-3xl ${isDisable ? 'bg-neutral-100 text-neutral-400 ' : 'bg-amber-300'} uppercase max-md:px-5 ${styleComp}`}>
+        <div className={`px-16 py-3 my-auto text-base font-medium whitespace-nowrap rounded-3xl cursor-pointer ${isDisable ? 'bg-neutral-100 text-neutral-400 ' : 'bg-amber-300'} uppercase max-md:px-5 ${styleComp}`}>
             {desc}
         </div>
     )

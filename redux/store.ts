@@ -1,10 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { productsApi } from '@/redux/products/products';
 
 export const makeStore = () => {
-  return configureStore({
-    reducer: {},
+  return configureStore ({
+    reducer: {
+      [productsApi.reducerPath]: productsApi.reducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(productsApi.middleware),
   })
 }
+
 
 // Infer the type of makeStore
 export type AppStore = ReturnType<typeof makeStore>

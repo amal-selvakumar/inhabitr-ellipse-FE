@@ -1,13 +1,20 @@
 import Stepper from "@/app/shared/Stepper";
-import * as React from "react";
+import React, { useState } from "react";
 import { dashBoardTitle } from '@/constants/dashboard';
 import { dashBoardData } from "@/data/dashboardText";
 import ButtonComponent from "@/app/shared/ButtonComponent";
-
-
+import Card from "@/app/shared/Card";
+import {DataProps} from '@/types/dashboard'
 
 export default function DashBoard() {
   const { title, subTitle, buttonText } = dashBoardTitle
+
+  const [selectedItem, setSelectedItem] = useState<DataProps | null>(null);
+
+  const handleCardClick = (data: DataProps) => {
+    setSelectedItem(data);
+  };
+
   return (
     <div className="flex gap-5 ml-5 max-md:flex-col w-full justify-center">
 
@@ -25,12 +32,12 @@ export default function DashBoard() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 pt-8">
             {dashBoardData.map((item, index) => (
-              <div key={index} className="flex flex-col flex-1 items-start py-6 pr-20 pl-6 rounded-lg bg-neutral-100 max-md:px-5">
-                <div className="text-black">{item.city}</div>
-                <div className="mt-1.5 text-neutral-500">
-                  {item.university}
-                </div>
-              </div>
+               <Card
+               key={index}
+               data={item}
+               isSelected={selectedItem?.city === item.city && selectedItem?.university === item.university}
+               onClick={handleCardClick}
+             />
             ))}
           </div>
         </div>

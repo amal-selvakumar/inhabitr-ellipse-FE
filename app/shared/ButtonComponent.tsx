@@ -1,11 +1,8 @@
 "use client";
-import React, { HTMLAttributes, ReactNode } from "react";
+import React from "react";
+import { ButtonProps } from '@/types/dashboard'
 
-export interface ButtonProps extends HTMLAttributes<HTMLHeadingElement> {
-    styleComp?: string;
-    desc?: ReactNode;
-    isDisable?: boolean;
-}
+
 
 const ButtonComponent: React.FC<ButtonProps> = ({
     styleComp = "",

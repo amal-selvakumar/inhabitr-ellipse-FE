@@ -17,8 +17,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  padding: 1rem;
+  color:'#F7F7F7';
 }
 
 @layer utilities {

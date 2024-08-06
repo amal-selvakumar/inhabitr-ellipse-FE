@@ -14,6 +14,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    fontFamily: {
+      libre: ['"Libre Franklin"', 'sans-serif']
+    },
   },
   plugins: [],
 };

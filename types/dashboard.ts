@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode, MouseEvent } from 'react';
 
 export interface DataProps {
     city: string;
@@ -11,7 +11,15 @@ export interface CardProps {
     onClick: (data: DataProps) => void;
 }
 
-export interface ButtonProps extends HTMLAttributes<HTMLHeadingElement> {
+
+export interface EstimateCardProps {
+    data?: [];
+    price?:number
+  
+}
+
+
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     styleComp?: string;
     desc?: ReactNode;
     isDisable?: boolean;

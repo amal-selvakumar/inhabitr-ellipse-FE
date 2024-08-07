@@ -8,3 +8,7 @@ export interface FormField {
 export interface LoginFormProps {
     formFields: FormField[];
 }
+
+export interface BannerProps{
+    content: string;
+}

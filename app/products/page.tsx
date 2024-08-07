@@ -22,7 +22,7 @@ const Products = () => {
   return (
     <div className="flex overflow-hidden flex-col bg-zinc-100">
     <Header/>
-    <CustomizeComponent/>
+    <CustomizeComponent data={products}/>
     <Footer/>
     </div>
   )

@@ -4,7 +4,7 @@ import { furnitureCard } from "@/constants/customise";
 import CartCounter from '@/components/customise/CardCounter'
 import AccordonComponent from "./Accordon";
 import Image from "next/image";
-import buttonImage from '@/public/assets/images/upgradeButton.png';
+import buttonImage from '@/public/assets/vectors/upgrade.svg';
 import defaultImage from '@/public/assets/vectors/Powered by inhabitr logo.svg'
 
 

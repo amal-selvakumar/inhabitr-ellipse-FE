@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Libre_Franklin } from '@next/font/google';
 import "./globals.css";
 import Header from "@/components/Navbar/page";
 import { sessionStatus } from "@/utils/session";
 import StoreProvider from "./StoreProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Libre_Franklin({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",

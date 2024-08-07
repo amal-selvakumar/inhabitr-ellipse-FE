@@ -6,7 +6,8 @@ interface InputProps {
   name: string;
   placeholder: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className: string;
 }
 
@@ -17,6 +18,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   value,
   onChange,
+  onBlur,
   className,
 }) => {
   return (
@@ -28,6 +30,7 @@ const Input: React.FC<InputProps> = ({
       className={className}
       required
       onChange={onChange}
+      onBlur={onBlur}
       value={value}
     />
   );

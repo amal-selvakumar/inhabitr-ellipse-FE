@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { productsApi } from '@/redux/Slices/products/products';
+import { loginApi } from './Slices/login/login';
 
 export const makeStore = () => {
   return configureStore ({
     reducer: {
       [productsApi.reducerPath]: productsApi.reducer,
+      [loginApi.reducerPath]:loginApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(productsApi.middleware),
+      getDefaultMiddleware().concat(productsApi.middleware).concat(loginApi.middleware),
   })
 }
 

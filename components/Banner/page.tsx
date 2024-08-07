@@ -3,7 +3,6 @@ import { BannerProps } from '@/types/login'
 import React from 'react'
 
 const Banner: React.FC<BannerProps> = ({ content }) => {
-    console.log('content', content)
     return (
         <section className="flex-col w-[56%] justify-center items-center  hidden md:hidden lg:flex ">
             <div className="w-full">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const CartCounter = () => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
 
   const handleIncrement = () => setQuantity((prev) => prev + 1);
   const handleDecrement = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1)); // Prevent quantity from going below 1

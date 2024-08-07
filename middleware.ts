@@ -11,7 +11,7 @@ const corsOptions = {
 export default function middleware(req: any){
 const protectedRoutes = ["/middlewareside"];
 
-    console.log('sessionStatus',sessionStatus, 'req',req)
+    // console.log('sessionStatus',sessionStatus, 'req',req)
     if(!sessionStatus && protectedRoutes.includes(req.nextUrl.pathname)) {
         const absoluteURL = new URL("/", req.nextUrl.origin);
         return NextResponse.redirect(absoluteURL.toString());

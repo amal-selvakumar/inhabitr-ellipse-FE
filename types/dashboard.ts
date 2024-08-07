@@ -11,14 +11,6 @@ export interface CardProps {
     onClick: (data: DataProps) => void;
 }
 
-
-export interface EstimateCardProps {
-    data?: [];
-    price?:number
-  
-}
-
-
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     styleComp?: string;
     desc?: ReactNode;

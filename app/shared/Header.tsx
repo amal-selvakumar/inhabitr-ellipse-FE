@@ -1,6 +1,6 @@
 import { menuItems } from "@/constants/dashboard";
 import React from "react";
-import headerIcon from '@/assets/vectors/InhabitrIcon.svg'
+import headerIcon from '@/public/assets/vectors/InhabitrIcon.svg'
 import Image from "next/image"
 import BorderButton from "./BorderButton";
 

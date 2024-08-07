@@ -18,6 +18,9 @@ const config: Config = {
         customYellow:'#FFD203'
       },
     },
+    fontFamily: {
+      libre: ['"Libre Franklin"', 'sans-serif']
+    },
   },
   plugins: [],
 };

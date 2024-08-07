@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import CustomizeComponent from "@/components/customise/Customise";
 import Header from '../shared/Header';
 import Footer from '../shared/Footer';
-import { useGetProductsQuery  } from '@/redux/products/products';
+import { useGetProductsQuery  } from '@/redux/Slices/products/products';
 
 
 

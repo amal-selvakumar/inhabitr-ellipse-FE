@@ -3,10 +3,10 @@
 import React, { useState } from "react";
 import LoginForm from "../../components/Form/page";
 import Link from "next/link";
-import loginBanner from "../../public/assets/loginBanner.png"
+import loginBanner from "../../public/assets/images/loginBanner.png"
 import Logo from "@/components/Logo/page";
-import userIcon from "../../public/assets/user.png";
-import passwordIcon from "../../public/assets/password.png";
+import userIcon from "../../public/assets/images/user.png";
+import passwordIcon from "../../public/assets/images/password.png";
 import { FormField } from "@/types/login";
 import Banner from "@/components/Banner/page";
 import FormLayout from "@/components/FormLayout/page";

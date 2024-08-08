@@ -12,7 +12,7 @@ const OrderSummaryCard: React.FC<OrderSummaryProps> = ({ data }) => {
     const { title, subTotal, installation, shipping, taxes, total } = OrderSummary;
     return (
         <div
-            className={`flex flex-col text-white gap-3 p-10`}
+            className={`flex flex-col text-white gap-5 p-10`}
         >
             <div className="  text-2xl font-semibold">{title}</div>
             <div>
@@ -21,7 +21,7 @@ const OrderSummaryCard: React.FC<OrderSummaryProps> = ({ data }) => {
                     <div>{formatCurrency(data?.subtotal)}</div>
                 </div>
             </div>
-            <div className="border-t text-lg border-white font-medium py-2">
+            <div className="border-t text-lg gap-3 border-white font-medium py-2">
                 <div className="flex flex-row justify-between">
                     <div>{installation}</div>
                     <div>{formatCurrency(data?.installation)}</div>
@@ -35,7 +35,7 @@ const OrderSummaryCard: React.FC<OrderSummaryProps> = ({ data }) => {
                     <div>{formatCurrency(data?.taxes)}</div>
                 </div>
             </div>
-            <div className="border-t text-white text-lg border-white font-semibold py-2">
+            <div className="border-t text-white text-2xl border-white font-semibold py-2">
                 <div className="flex flex-row justify-between">
                     <div>{total}</div>
                     <div>{formatCurrency(data?.total)}</div>

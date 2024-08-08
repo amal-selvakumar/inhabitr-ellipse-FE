@@ -1,99 +1,12 @@
-// "use client"
-
-// import React, { useState } from "react";
-// import LoginForm from "../../components/Form/page";
-// import Link from "next/link";
-// import loginBanner from "../../assets/loginBanner.png"
-// import Logo from "@/components/Logo/page";
-// import userIcon from "../../assets/user.png";
-// import passwordIcon from "../../assets/password.png";
-// import { FormField } from "@/types/login";
-// import Banner from "@/components/Banner/page";
-// import FormLayout from "@/components/FormLayout/page";
-// import { useLoginUserMutation } from "@/redux/Slices/login/login";
-// import { loginContent } from "@/constants/login";
-
-
-// const Login: React.FC = () => {
-//     const [errors, setErrors] = useState({});
-//     const formFields: FormField[] = [
-//         { name: "username", placeholder: "Username or Email", type: "text", icon: userIcon.src },
-//         { name: "password", placeholder: "Password", type: "password", icon: passwordIcon.src },
-//     ];
-
-//     const [formValues, setFormValues] = useState({ email: "", password: "" });
-//     const [loginAuth, { isLoading, error, data }] = useLoginUserMutation();
-
-//     const handleLoginSubmit = async (formValues: any) => {
-//       const { email, password } = formValues;
-//       console.log('formValues',formValues.password)
-      
-//       try {
-//         const result = await loginAuth({ email, password }).unwrap();
-//         // Handle successful login
-//         console.log('Login successful:', result);
-//     //    alert(formValues);
-//       } catch (error) {
-//         console.error('Error:', error);
-//       }
-//     };
-      
-    
-//   const validateEmail = (email: string) => {
-//     const allowedDomains = ["pumexinfotech.com", "inhabitr.com"];
-//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     if (!emailRegex.test(email)) return false;
-
-//     const domain = email.split("@")[1];
-//     return allowedDomains.includes(domain);
-//   };
-
-//   const validatePassword = (password: string) => {
-//     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-//     return passwordRegex.test(password);
-//   };
-//   const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     const { name, value } = e.target;
-//     if (name === "email") {
-//       setErrors({ ...errors, email: validateEmail(value) ? "" : "Invalid email format" });
-//     }
-  
-//     if (name === "password") {
-//       setErrors({ ...errors, password: validatePassword(value) ? "" : "Password must be at least 8 characters long, include at least one uppercase letter, one number, and one special character" });
-//     }
-//   };
-
-
-
-//     return (
-//         <main className="overflow-hidden px-16 pt-24 pb-24 bg-[#F1F1F1] max-md:px-5 h-screen justify-center items-center flex flex-col font-libre">
-//             <div className="flex w-full items-start px-4">
-//                 <Logo />
-//             </div>
-
-//             <div className="flex lg:gap-16 md:gap-0 sm:gap-0 max-md:flex-col w-[90%] items-center">
-//                 <Banner content={loginBanner.src} />
-
-//                 <FormLayout content={loginContent} component={(
-//                     <LoginForm formFields={formFields} onSubmit={handleLoginSubmit} />
-//                 )} />
-//             </div>
-//         </main>
-
-//     );
-// };
-
-// export default Login;
-
 "use client";
 
 import React, { useState } from "react";
 import LoginForm from "../../components/Form/page";
 import Link from "next/link";
-import loginBanner from "../../assets/loginBanner.png"
+import loginBanner from "../../public/assets/images/loginBanner.png"
 import Logo from "@/components/Logo/page";
-import userIcon from "../../assets/user.png";
-import passwordIcon from "../../assets/password.png";
+import userIcon from "../../public/assets/images/user.png";
+import passwordIcon from "../../public/assets/images/password.png";
 import { FormField } from "@/types/login";
 import Banner from "@/components/Banner/page";
 import FormLayout from "@/components/FormLayout/page";

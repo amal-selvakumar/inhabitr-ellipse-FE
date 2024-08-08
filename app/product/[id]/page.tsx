@@ -5,17 +5,15 @@ import Header from '@/app/shared/Header';
 import Footer from '@/app/shared/Footer';
 import { useGetProductsQuery  } from '@/redux/Slices/products/products';
 
-
-
 const Products = () => {
   const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(null);
 
   const [productList, setProductList] = useState<any[]>([]);
 
   useEffect(() => {
-  if(products){
+  if(isSuccess){
     setProductList(products)
-  } else{
+  } else if(error){
     console.log(error,"error")
   }
   }, [products])

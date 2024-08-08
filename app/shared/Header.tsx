@@ -17,7 +17,7 @@ const Header: React.FC = (children) => {
             {item}
           </div>
         ))}
-        <BorderButton desc=" furnish now" />
+        <BorderButton desc=" furnish now"  />
       </div>
     </div>
   );

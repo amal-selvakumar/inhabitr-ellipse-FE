@@ -1,5 +1,5 @@
 export interface EstimateCardProps {
-    itemPrice: string;
+    itemPrice: number;
     }
     
     

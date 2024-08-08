@@ -41,8 +41,8 @@ export default function CustomizeComponent({data}:any) {
                 <Image src={FloorPlan} alt="floor plan"  />
               </div>
               <div >
-                <DarkCard>
-                  <EstimateCard itemPrice='79,475.00' />
+                <DarkCard styleComp=' justify-center items-center '>
+                  <EstimateCard itemPrice={79475.00} />
                 </DarkCard>
               </div>
               </div>

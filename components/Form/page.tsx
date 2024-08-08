@@ -13,10 +13,16 @@ const Form = <T extends { [key: string]: string }>({
 }: LoginFormProps<T>) => {
   const [formValues, setFormValues] = useState<T>({} as T);
 
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState<{ [key: string]: boolean }>({
+    password: false,
+    confirmPassword: false,
+  });
 
-  const handleToggle = () => {
-    setPasswordVisible(!passwordVisible);
+  const handleToggle = (field: string) => {
+    setPasswordVisible(prevState => ({
+      ...prevState,
+      [field]: !prevState[field]
+    }));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +39,7 @@ const Form = <T extends { [key: string]: string }>({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center lg:w-[317px] md:[317px] sm:[250px] lg:max-w-[317px] sm:max-w-[250px]">
+    <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center  lg:w-[317px] md:[317px] sm:[250px] lg:max-w-[317px] sm:max-w-[250px]">
       {formFields.map((field) => (
         <div key={field.name} className="mt-3 w-full">
           <label htmlFor={field.name} className="sr-only">
@@ -41,10 +47,11 @@ const Form = <T extends { [key: string]: string }>({
           </label>
           <div className="flex items-center bg-[#F1F1F1] border rounded-md focus-within:border-2 focus-within:border-[#676767] hover:border-2 hover:border-[#676767]">
             <div className={`flex items-center pl-3 ${errors[field.name as keyof typeof errors] ? "text-red-500" : "text-gray-400"}`}>
-              <img src={field.icon} alt={`${field.icon} icon`} className="h-5 w-6" />
-            </div>
+            {field.icon &&  <img src={field.icon} alt={`${field.icon} icon`} className="h-5 w-6" />}
+            </div> 
+
             <Input
-              type={field.type === "password" ? (passwordVisible ? "text" : "password") : field.type}
+              type={field.type === "password" ? (passwordVisible[field.name] ? "text" : "password") : field.type}
               id={field.name}
               name={field.name}
               placeholder={field.placeholder}
@@ -54,7 +61,7 @@ const Form = <T extends { [key: string]: string }>({
               className="pl-2 pr-4 py-5 w-full text-xs font-medium bg-[#F1F1F1] text-[#676767] outline-none"
             />
             {field.type === "password" && (
-              <div className={`flex items-center pr-3 cursor-pointer ${errors[field.name as keyof typeof errors] ? "text-red-500" : "text-gray-400"}`} onClick={handleToggle}>
+              <div className={`flex items-center pr-3 cursor-pointer ${errors[field.name as keyof typeof errors] ? "text-red-500" : "text-gray-400"}`} onClick={() => handleToggle(field.name)}>
                 <img src={eyeIcon.src} alt="eye icon" className="h-5 w-7" />
               </div>
             )}

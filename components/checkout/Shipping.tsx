@@ -7,6 +7,7 @@ import ButtonComponent from "@/app/shared/ButtonComponent";
 import Calendar from 'react-calendar';
 import LightCard from "@/app/shared/LightCard";
 import RadioOption from "@/app/shared/RadioOption";
+import 'react-calendar/dist/Calendar.css';
 
 type ValuePiece = Date | null;
 
@@ -52,7 +53,7 @@ const ShippingComponent: React.FC<any> = () => {
                 <div>
                     <LightCard>
                         <div>{datePickerTitle}</div>
-                        <Calendar className={"flex gap-4 flex-col accent-[#FFD203]"} onChange={onChange} value={value} />
+                        <Calendar className="react-calendar custom-calendar"onChange={onChange} value={value} />
                     </LightCard>
                     <div className="text-customGray text-xs font-normal pt-3">{datePickerFooter}</div>
                 </div>

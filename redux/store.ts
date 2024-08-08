@@ -1,15 +1,22 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { productsApi } from '@/redux/Slices/products/products';
 import { loginApi } from './Slices/login/login';
+import { propertyApi } from './Slices/property/property';
+import dataReducer from './Reducers/property'
 
 export const makeStore = () => {
-  return configureStore ({
+  return configureStore({
     reducer: {
       [productsApi.reducerPath]: productsApi.reducer,
-      [loginApi.reducerPath]:loginApi.reducer,
+      [loginApi.reducerPath]: loginApi.reducer,
+      [propertyApi.reducerPath]: propertyApi.reducer,
+      data: dataReducer
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(productsApi.middleware).concat(loginApi.middleware),
+      getDefaultMiddleware()
+        .concat(productsApi.middleware)
+        .concat(loginApi.middleware)
+        .concat(propertyApi.middleware),
   })
 }
 

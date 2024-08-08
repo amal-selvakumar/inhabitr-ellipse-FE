@@ -1,8 +1,12 @@
 import { HTMLAttributes, ReactNode, MouseEvent } from 'react';
 
 export interface DataProps {
-    city: string;
-    university: string;
+    location: string;
+    name: string;
+    description: string;
+    furniture:[];
+    status: number;
+    id: string
 }
 
 export interface CardProps {
@@ -25,3 +29,4 @@ export interface BorderButtonProps extends HTMLAttributes<HTMLHeadingElement> {
 export interface StepperProps extends HTMLAttributes<HTMLHeadingElement> {
     activeTab?: number;
 }
+

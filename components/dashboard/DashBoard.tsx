@@ -6,6 +6,7 @@ import { dashBoardData } from "@/data/dashboardText";
 import ButtonComponent from "@/app/shared/ButtonComponent";
 import Card from "@/app/shared/Card";
 import { DataProps } from '@/types/dashboard'
+import Link from "next/link";
 
 
 export default function DashBoard() {
@@ -19,10 +20,7 @@ export default function DashBoard() {
   };
 
   const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = () => {
-    if (selectedItem) {
-      window.location.href = '/products'
-     
-    }
+    console.log('clicked')
   };
 
   return (
@@ -38,12 +36,24 @@ export default function DashBoard() {
             <div className="text-6xl font-semibold text-black max-md:max-w-full max-md:text-4xl">
               {subTitle}
             </div>
-            <ButtonComponent
-              desc={buttonText}
-              isDisable={!selectedItem}
-              onClick={handleButtonClick}
-              styleComp="bg-amber-300"
-            />
+
+            {selectedItem ? (
+              <Link href={`/product/${1}`}>
+                <ButtonComponent
+                  desc={buttonText}
+                  isDisable={!selectedItem}
+                  onClick={handleButtonClick}
+                  styleComp="bg-amber-300"
+                />
+              </Link>
+            ) : (
+              <ButtonComponent
+                desc={buttonText}
+                isDisable={!selectedItem}
+                onClick={handleButtonClick}
+                styleComp="bg-amber-300"
+              />
+            )}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 pt-8">
             {dashBoardData.map((item, index) => (

@@ -5,8 +5,6 @@ import Header from '@/app/shared/Header';
 import Footer from '@/app/shared/Footer';
 import { useGetProductsQuery  } from '@/redux/Slices/products/products';
 
-
-
 const Products = () => {
   const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(null);
 
@@ -15,7 +13,7 @@ const Products = () => {
   useEffect(() => {
   if(products){
     setProductList(products)
-  } else{
+  } else if(error){
     console.log(error,"error")
   }
   }, [products])

@@ -1,26 +1,35 @@
 'use client'
 import Stepper from "@/app/shared/Stepper";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { dashBoardTitle } from '@/constants/dashboard';
-import { dashBoardData } from "@/data/dashboardText";
 import ButtonComponent from "@/app/shared/ButtonComponent";
 import Card from "@/app/shared/Card";
 import { DataProps } from '@/types/dashboard'
 import Link from "next/link";
-
+import { useGetPropertiesQuery } from "@/redux/Slices/property/property";
+import { useDispatch } from 'react-redux';
+import { setData } from '@/redux/Reducers/property';
 
 export default function DashBoard() {
 
   const { title, subTitle, buttonText } = dashBoardTitle
+  const { data: properties, error, isLoading,isSuccess } = useGetPropertiesQuery(null);
 
   const [selectedItem, setSelectedItem] = useState<DataProps | null>(null);
+  const [propertyList, setPropertyList] = useState<any>([]);
+
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+  if(isSuccess){
+    setPropertyList(properties)
+  } else if(error){
+    console.log(error,"error")
+  }
+  }, [properties])  
 
   const handleCardClick = (data: DataProps) => {
     setSelectedItem(data);
-  };
-
-  const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = () => {
-    console.log('clicked')
   };
 
   return (
@@ -38,11 +47,11 @@ export default function DashBoard() {
             </div>
 
             {selectedItem ? (
-              <Link href={`/product/${1}`}>
+              <Link href={`/product/${selectedItem?.id}`}>
                 <ButtonComponent
                   desc={buttonText}
                   isDisable={!selectedItem}
-                  onClick={handleButtonClick}
+                  onClick={()=>{dispatch(setData(selectedItem))}}
                   styleComp="bg-amber-300"
                 />
               </Link>
@@ -50,17 +59,17 @@ export default function DashBoard() {
               <ButtonComponent
                 desc={buttonText}
                 isDisable={!selectedItem}
-                onClick={handleButtonClick}
+                onClick={()=>{}}
                 styleComp="bg-amber-300"
               />
             )}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 pt-8">
-            {dashBoardData.map((item, index) => (
+            {propertyList?.map((item:any, index:any) => (
               <Card
                 key={index}
                 data={item}
-                isSelected={selectedItem?.city === item.city && selectedItem?.university === item.university}
+                isSelected={selectedItem?.name === item.name && selectedItem?.location === item.location}
                 onClick={handleCardClick}
               />
             ))}

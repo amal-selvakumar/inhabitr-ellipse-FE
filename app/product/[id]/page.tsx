@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import CustomizeComponent from "@/components/customise/Customise";
-import Header from '../shared/Header';
-import Footer from '../shared/Footer';
+import Header from '@/app/shared/Header';
+import Footer from '@/app/shared/Footer';
 import { useGetProductsQuery  } from '@/redux/Slices/products/products';
 
 

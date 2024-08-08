@@ -20,8 +20,6 @@ export default function DashBoard() {
 
   const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (selectedItem) {
-      // dispatch(updateSelectedItem(selectedItem));
-      console.log("selecteddd", selectedItem)
       window.location.href = '/products'
      
     }

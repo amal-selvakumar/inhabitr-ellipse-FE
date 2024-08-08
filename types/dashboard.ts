@@ -18,7 +18,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 }
 
 export interface BorderButtonProps extends HTMLAttributes<HTMLHeadingElement> {
-    className?: string;
+    classProps?: string;
     desc?: ReactNode;
 }
 

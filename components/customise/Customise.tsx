@@ -4,17 +4,13 @@ import { CustomizeTitle } from '@/constants/customise';
 import ButtonComponent from "@/app/shared/ButtonComponent";
 import DarkCard from "@/app/shared/DarkCard";
 import Image from "next/image";
-import FloorPlan from '@/public/assets/vectors/floorPlan.svg'
+import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg'
 import EstimateCard from "./EstimateCard";
 import FurnitureCard from "@/app/shared/FurnitureCard";
 
 
 export default function CustomizeComponent({data}:any) {
   const { title, subTitle, buttonText } = CustomizeTitle
-  
-
-  console.log(data,"data")
-
 
   const [selectedItem, setSelectedItem] = useState< any>(null);
 
@@ -45,8 +41,8 @@ export default function CustomizeComponent({data}:any) {
                 <Image src={FloorPlan} alt="floor plan"  />
               </div>
               <div >
-                <DarkCard>
-                  <EstimateCard itemPrice='79,475.00' />
+                <DarkCard styleComp=' justify-center items-center '>
+                  <EstimateCard itemPrice={79475.00} />
                 </DarkCard>
               </div>
               </div>
@@ -54,12 +50,12 @@ export default function CustomizeComponent({data}:any) {
             </div>
             <div className="col-span-3">
             <div className="grid gap-4 ">
-              {data?.map((item:any, index:any) => (
+              {data? data?.map((item:any, index:any) => (
                 <FurnitureCard
                   key={index}
                   data={item}
                 />
-              ))}
+              )):null}
             </div>
             </div>
 

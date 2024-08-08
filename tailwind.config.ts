@@ -17,6 +17,9 @@ const config: Config = {
         customGray: '#797979',
         customYellow:'#FFD203'
       },
+       amber: {
+          300: '#FFD203', // Adding custom color
+        },
     },
     fontFamily: {
       libre: ['"Libre Franklin"', 'sans-serif']

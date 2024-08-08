@@ -11,7 +11,7 @@ const Products = () => {
   const [productList, setProductList] = useState<any[]>([]);
 
   useEffect(() => {
-  if(products){
+  if(isSuccess){
     setProductList(products)
   } else if(error){
     console.log(error,"error")

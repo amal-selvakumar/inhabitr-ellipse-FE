@@ -2,7 +2,7 @@ export interface FormField {
     name: string;
     placeholder: string;
     type: string;
-    icon: string;
+    icon?: string;
 }
 
 export type FormValues = {

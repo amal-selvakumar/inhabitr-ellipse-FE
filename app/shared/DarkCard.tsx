@@ -3,7 +3,7 @@ import React from 'react';
 
 const DarkCard: React.FC<any> = ({ children, styleComp='' }) => {
   return (
-    <div className={`flex flex-col flex-1 rounded-lg cursor-pointer bg-black ${styleComp}`}>
+    <div className={` rounded-lg  bg-black ${styleComp}`}>
       {children}
     </div>
   );

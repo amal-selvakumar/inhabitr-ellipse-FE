@@ -2,7 +2,7 @@ import Stepper from "@/app/shared/Stepper";
 import React, { useState } from "react";
 import DarkCard from "@/app/shared/DarkCard";
 import Image from "next/image";
-import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg'
+import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg';
 import FurnitureCard from "@/app/shared/FurnitureCard";
 import OrderSummaryCard from "./OrderSummaryCard";
 import { furnitureList, CheckoutTitle } from "@/constants/checkout";
@@ -22,39 +22,39 @@ export default function CheckOut({ data }: any) {
   });
 
   return (
-    <div className="flex ml-5 max-md:flex-col  w-full justify-center">
-      <div className="flex flex-col  max-md:ml-0 max-md:w-full ">
+    <div className="flex ml-5 max-md:flex-col w-full justify-center">
+      <div className="flex flex-col max-md:ml-0 max-md:w-full">
         <div className="flex flex-col items-start self-center px-20 pt-24 pb-14 mt-6 w-full bg-white max-w-[1302px] max-md:px-5 max-md:max-w-full">
           <Stepper activeTab={3} />
           <div className="mt-12 text-5xl font-semibold uppercase text-black max-md:mt-10 max-md:max-w-full max-md:text-4xl">
             {title}
           </div>
-          <div className="grid grid-cols-5 gap-5 pt-20">
-            <div className="col-span-2">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-5 pt-20">
+            <div className="col-span-1 md:col-span-2">
               <div>
                 <Image src={FloorPlan} alt="floor plan" />
               </div>
             </div>
-            <div className="col-span-3">
+            <div className="col-span-1 md:col-span-3">
               <div className="grid gap-5">
-                <DarkCard>
+                <DarkCard styleComp="flex flex-col flex-1">
                   <OrderSummaryCard data={state} />
                 </DarkCard>
-                <DarkCard>
+                <DarkCard styleComp="flex flex-col flex-1">
                   <ShippingComponent />
                 </DarkCard>
-                <DarkCard>
+                <DarkCard styleComp="flex flex-col flex-1">
                   <ContractCard price={state.total} />
                 </DarkCard>
               </div>
             </div>
           </div>
           <div className="flex w-full items-end flex-col mt-5">
-            <div className="flex flex-row justify-between w-[70%] mb-10 text-lg">
-              <div className="font-semibold ">{footerTitle}</div>
-              <div className=" text-customGray">{data?.length} {count}</div>
+            <div className="flex flex-row justify-between w-[70%] mb-10 text-lg max-md:w-full max-md:flex-col max-md:items-start">
+              <div className="font-semibold">{footerTitle}</div>
+              <div className="text-customGray">{data?.length} {count}</div>
             </div>
-            <div className="grid gap-4 w-[70%]">
+            <div className="grid gap-4 w-[70%] max-md:w-full">
               {data ? data?.map((item: any, index: any) => (
                 <FurnitureCard
                   key={index}

@@ -13,14 +13,17 @@ const EstimateCard: React.FC<EstimateCardProps> = ({ itemPrice }) => {
 
     return (
         <div
-            className={`flex flex-col items-center gap-3 justify-center pt-4`}
+            className={`flex flex-col gap-7 pt-4`}
         >
+            <div className="flex gap-3 flex-col">
             <div className="text-white text-2xl font-bold">{formatCurrency(itemPrice)} {priceTail}</div>
             <div className=" text-customGray text-l font-semibold">{title}</div>
+            </div>
+            
             <Link href="/checkout">
             <ButtonComponent desc={buttomText} styleComp="bg-customYellow" isDisable={false} />
             </Link>
-            <p className="w-[60%]">
+            <p >
                 <span className="text-customGray font-medium">{coluredSubTitle}</span>
                 <span className="text-white font-medium"> {subTitle}</span>
             </p>

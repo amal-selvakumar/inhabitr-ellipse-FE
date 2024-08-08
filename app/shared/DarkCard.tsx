@@ -1,27 +1,12 @@
-"use client";
-import React from "react";
-import { EstimateCardProps } from '@/types/dashboard'
+'use client';
+import React from 'react';
 
-
-const DarkCard: React.FC<EstimateCardProps> = ({ data,price }) => {
-
-
-    return (
-        <div
-            className="flex flex-col flex-1 items-start rounded-lg cursor-pointer bg-black "
-        >
-            {data && data.map((item, index) => (
-             <div className="text-white">{item}</div>
-            ))}
-            {!data? 
-            <div>
-                this is the card
-
-            </div> 
-            :null}
-          
-        </div>
-    );
+const DarkCard: React.FC<any> = ({ children, styleComp='' }) => {
+  return (
+    <div className={`flex flex-col flex-1 rounded-lg cursor-pointer bg-black min-h-80 ${styleComp}`}>
+      {children}
+    </div>
+  );
 };
 
 export default DarkCard;

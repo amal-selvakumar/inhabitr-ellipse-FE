@@ -13,6 +13,16 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        customGray: '#797979',
+        customYellow:'#FFD203'
+      },
+       amber: {
+          300: '#FFD203', // Adding custom color
+        },
+    },
+    fontFamily: {
+      libre: ['"Libre Franklin"', 'sans-serif']
     },
   },
   plugins: [],

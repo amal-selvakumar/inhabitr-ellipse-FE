@@ -56,7 +56,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <main className="overflow-hidden px-16 pt-24 pb-24 bg-[#F1F1F1] max-md:px-5 h-screen justify-center items-center flex flex-col font-libre">
+    <main className="overflow-hidden px-16 pt-24 pb-24 bg-[#F1F1F1] max-md:px-5 h-screen justify-center items-center flex flex-col ">
       <div className="flex w-full items-start px-4">
         <Logo />
       </div>

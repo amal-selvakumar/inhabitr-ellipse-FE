@@ -74,7 +74,7 @@ const page: React.FC = () => {
 
 
     return (
-        <main className="px-16 pb-24  bg-[#F1F1F1] max-md:px-5 justify-center items-center flex flex-col font-libre">
+        <main className="px-16 pb-24  bg-[#F1F1F1] max-md:px-5 justify-center items-center flex flex-col">
             <div className="flex w-full pt-4 items-start px-4">
                 <Logo />
             </div>

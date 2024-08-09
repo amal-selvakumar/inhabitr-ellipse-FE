@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface CardComponentProps {
@@ -16,6 +17,7 @@ const FormLayout: React.FC<CardComponentProps> = ({ content, component }) => {
                     <p className="text-lg font-medium leading-5 text-center text-black mx-auto">
                         {content.subheading}
                     </p>
+                    <p className="text-sm font-medium mt-3 leading-5 text-center text-black"/>
                     <p className="text-sm font-medium mt-3 leading-5 text-center text-black">
                         {content?.secondarySubheading}
                     </p>
@@ -23,13 +25,17 @@ const FormLayout: React.FC<CardComponentProps> = ({ content, component }) => {
 
                 <div>
                     {component}
-                    <p className="mt-7 text-base font-medium leading-5 text-[#837a7a] flex items-center justify-center">
+                  
+                    <p className="mt-7 text-base font-medium leading-5 text-[#837a7a] flex items-center justify-center gap-2">
                         {content.formFooterText}
+                        <Link href={'/signup'}>
                         <span className="text-yellow-600">
                             {content.formFooterLink}
                         </span>
+                        </Link>
                         <br />
                     </p>
+                    
                 </div>
             </div>
         </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import eyeIcon from "../../public/assets/eye.png";
+import eyeIcon from "../../public/assets/images/eye.png";
 import Input from "../Input/page";
 import { LoginFormProps, FormField } from "@/types/login";
 

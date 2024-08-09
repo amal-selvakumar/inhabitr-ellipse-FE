@@ -6,10 +6,13 @@ import AccordonComponent from "./Accordon";
 import Image from "next/image";
 import buttonImage from '@/public/assets/vectors/upgrade.svg';
 import defaultImage from '@/public/assets/vectors/Powered by inhabitr logo.svg'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const FurnitureCard: React.FC<any> = (props) => {
     const { name, id, quantity, depth, description, height, width } = props?.data;
+    const data = useSelector((state:any) => state.data.data);
+
     const [imageSrc, setImageSrc] = useState(`/assets/vectors/${id}.svg`);
 
     const handleError = () => {

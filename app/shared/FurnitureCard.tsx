@@ -24,7 +24,7 @@ const FurnitureCard: React.FC<any> = (props) => {
         props.onQuantityChange(id, price, itemQty);
     }, [itemQty]);
 
-    const { dimension, qty, details, widthUnit, heightUnit, depthUnit, cross } = furnitureCard;
+    const { dimension,  details, widthUnit, heightUnit, depthUnit, cross } = furnitureCard;
 
     return (
         <div className="flex flex-row items-start py-6 pr-20 pl-6 rounded-lg cursor-pointer bg-neutral-100 max-md:px-5">
@@ -33,7 +33,7 @@ const FurnitureCard: React.FC<any> = (props) => {
                 <span className="mt-1.5 text-customGray font-bold text-sm pb-4">
                     {dimension}{width}{widthUnit}{cross}{height}{heightUnit}{cross}{depth}{depthUnit}{cross}
                 </span>
-                <div className="text-black text-lg font-bold pb-2">{formatCurrency(price)}</div>
+                <div className="text-black text-lg font-bold pb-2">{price?formatCurrency(price) : formatCurrency(0)}</div>
                 <CartCounter setItemQty={setItemQty} />
                 <AccordonComponent title={details} details={description} />
                 <Image src={buttonImage} alt="button" />

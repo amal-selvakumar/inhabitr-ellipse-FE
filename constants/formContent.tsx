@@ -2,7 +2,7 @@ export const loginContent = {
     heading: "Welcome!",
     subheading: "Please Log-in to get started!",
     formFooterText: " Not a customer yet?",
-    formFooterLink: (<a href="/register">
+    formFooterLink: (<a href="/signup">
     &nbsp;Get started!
 </a>)
 }

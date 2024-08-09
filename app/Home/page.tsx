@@ -7,10 +7,13 @@ import DashBoard from "@/components/dashboard/DashBoard";
 
 const Home = () => {
     return (
-      <div className="flex overflow-hidden flex-col bg-zinc-100">
+      <div className="flex overflow-hidden min-h-screen flex-col bg-zinc-100">
         
            <Header/>
+           <div className="flex-grow">
            <DashBoard/>
+           </div>
+          
            <Footer/>
            
         </div>

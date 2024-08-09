@@ -41,7 +41,7 @@ export default function DashBoard() {
           <div className="mt-12 text-6xl font-semibold text-black max-md:mt-10 max-md:max-w-full max-md:text-4xl">
             {title}
           </div>
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center w-full gap-8">
             <div className="text-6xl font-semibold text-black max-md:max-w-full max-md:text-4xl">
               {subTitle}
             </div>

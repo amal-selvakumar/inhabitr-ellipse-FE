@@ -74,12 +74,12 @@ const SignUp: React.FC = () => {
                 <Logo />
             </div>
 
-            <div className="flex lg:gap-16 md:gap-0 sm:gap-0 max-md:flex-col w-[95%]">
+            <div className="flex lg:gap-16 md:gap-0 sm:gap-0 max-md:flex-col w-[95%] ">
                 <Banner content={loginBanner.src} />
                 <div>
 
                 </div>
-                <FormLayout content={signUpContent} component={(
+                <FormLayout content={signUpContent} styleComp={'underline underline-offset-2'} component={(
                     <SignUpForm formFields={formFields} onSubmit={handleSignUpSubmit} errors={errors} />
                 )} />
             </div>

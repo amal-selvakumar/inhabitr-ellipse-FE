@@ -4,9 +4,10 @@ import React from 'react';
 interface CardComponentProps {
     content: any;
     component: React.ReactNode;
+    styleComp: string;
 }
 
-const FormLayout: React.FC<CardComponentProps> = ({ content, component }) => {
+const FormLayout: React.FC<CardComponentProps> = ({ content, component,styleComp }) => {
     return (
         <section className="flex flex-col lg:w-[44%] ml-5  mb-16 md:w-full max-md:ml-0 max-md:w-full min-h-[80vh]">
             <div className="flex gap-4  flex-col grow items-center justify-center px-14 pb-9 mt-7 w-full bg-white max-md:px-5 max-md:mt-10 max-md:max-w-full">
@@ -27,7 +28,7 @@ const FormLayout: React.FC<CardComponentProps> = ({ content, component }) => {
 
                     <p className="mt-7 text-base font-medium leading-5 text-[#837a7a] flex items-center justify-center gap-2">
                         {content.formFooterText}
-                        <Link href={'/signup'} className="text-yellow-600">
+                        <Link href={'/signup'} className={`text-yellow-600 ${styleComp}`}>
                        
                             {content.formFooterLink}
                        

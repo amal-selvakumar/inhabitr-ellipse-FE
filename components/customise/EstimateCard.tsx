@@ -21,9 +21,9 @@ const EstimateCard: React.FC = () => {
                 <div className=" text-customGray text-l font-semibold">{title}</div>
             </div>
 
-            <Link href="/checkout">
-                <ButtonComponent desc={buttomText} styleComp="bg-customYellow" isDisable={false} />
-            </Link>
+            {cartTotal ? <Link href="/checkout">
+                <ButtonComponent desc={buttomText} styleComp="bg-customYellow" isDisable={!cartTotal} />
+            </Link> : <ButtonComponent desc={buttomText} styleComp="bg-customYellow" isDisable={!cartTotal} />}
             <p >
                 <span className="text-customGray font-medium">{coluredSubTitle}</span>
                 <span className="text-white font-medium"> {subTitle}</span>

@@ -12,6 +12,7 @@ import { useParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setTotal } from "@/redux/Reducers/furnitures";
 import { checkItems } from "@/utils/common";
+import Link from "next/link";
 
 export default function CustomizeComponent() {
   const { title, subTitle, buttonText } = CustomizeTitle;
@@ -60,11 +61,20 @@ export default function CustomizeComponent() {
             <div className="text-xl font-medium text-black w-[50%] max-md:text-xl">
               {subTitle}
             </div>
-            <ButtonComponent
-              desc={buttonText}
-              isDisable={checkItems(selectedQuantities)}
-              styleComp="bg-customYellow"
-            />
+            {checkItems(selectedQuantities) ?
+              <ButtonComponent
+                desc={buttonText}
+                isDisable={checkItems(selectedQuantities)}
+                styleComp="bg-customYellow"
+              /> :
+              <Link href={'/checkout'}>
+                <ButtonComponent
+                  desc={buttonText}
+                  isDisable={checkItems(selectedQuantities)}
+                  styleComp="bg-customYellow"
+                />
+              </Link>}
+
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-5 pt-20">
             <div className="col-span-2">

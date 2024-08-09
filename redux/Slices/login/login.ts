@@ -1,8 +1,9 @@
+import { API_PATH } from '@/constants/api';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const loginApi = createApi({
   reducerPath: 'loginApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://54.145.55.154:3300' }),
+  baseQuery: fetchBaseQuery({ baseUrl: API_PATH }),
   tagTypes: ['Post'],
   endpoints: (builder) => ({
     loginUser: builder.mutation({

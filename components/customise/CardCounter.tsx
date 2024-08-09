@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const CartCounter = () => {
+const CartCounter = (props:any) => {
   const [quantity, setQuantity] = useState(0);
 
-  const handleIncrement = () => setQuantity((prev) => prev + 1);
-  const handleDecrement = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1)); // Prevent quantity from going below 1
+  const handleIncrement = () => {setQuantity((prev) => prev + 1);}
+  const handleDecrement = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 0)); // Prevent quantity from going below 0
+
+  useEffect(() => {
+    props.setItemQty(quantity)
+  }, [quantity])
+  
 
   return (
     <div className="flex items-center space-x-4">

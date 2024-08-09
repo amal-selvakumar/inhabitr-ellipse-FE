@@ -16,7 +16,7 @@ const GifComponent = () => {
         width={50}
       />         
             </div> 
-            <p className='text-base font-medium mt-3 leading-5 text-center text-black'>We`ll handle the rest with our technolagy,and one of our team member contact you shortly.</p>
+            <p className='text-base mt-4 font-medium leading-5 text-center text-black'>We`ll handle the rest with our technolagy,and one of our team members will contact you shortly.</p>
 
             <button  className="py-2.5 mt-8 max-w-full text-sm md:text-base font-medium items-center text-center text-black  bg-amber-300 rounded-3xl w-[216px] max-md:px-5">
                 <Link href='/' className=''>BACK TO HOMEPAGE</Link>

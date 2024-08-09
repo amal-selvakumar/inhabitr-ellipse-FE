@@ -1,5 +1,5 @@
 import Stepper from "@/app/shared/Stepper";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CustomizeTitle } from '@/constants/customise';
 import ButtonComponent from "@/app/shared/ButtonComponent";
 import DarkCard from "@/app/shared/DarkCard";
@@ -7,17 +7,29 @@ import Image from "next/image";
 import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg'
 import EstimateCard from "./EstimateCard";
 import FurnitureCard from "@/app/shared/FurnitureCard";
+import { useGetProductsQuery  } from '@/redux/Slices/products/products';
 
-export default function CustomizeComponent({data}: any) {
+export default function CustomizeComponent() {
   const { title, subTitle, buttonText } = CustomizeTitle;
 
+  const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(null);
+  
   const [selectedItem, setSelectedItem] = useState<any>(null);
 
-  return (
-    <div className="flex gap-5 ml-5 max-md:flex-col w-full justify-center">
+  const [productList, setProductList] = useState<any[]>([]);
 
-      <div className="flex flex-col max-md:ml-0 max-md:w-full">
-        <div className="flex flex-col items-start self-center px-20 pt-24 pb-14 mt-6 w-full bg-white max-w-[1302px] max-md:px-5 max-md:max-w-full">
+  useEffect(() => {
+  if(isSuccess){
+    setProductList(products)
+  } else if(error){
+    console.log(error,"error")
+  }
+  }, [products])
+  return (
+    <div className="flex gap-5 max-md:flex-col w-full justify-center">
+
+      <div className="flex flex-col max-md:ml-0 max-md:w-full w-full py-14 px-20">
+        <div className="flex flex-col items-start self-center px-20 pt-24 pb-14 mt-6 w-full bg-white max-md:px-5">
           <Stepper activeTab={2} />
           <div className="mt-12 text-5xl font-semibold uppercase text-black max-md:mt-10 max-md:max-w-full max-md:text-4xl">
             {title}
@@ -47,7 +59,7 @@ export default function CustomizeComponent({data}: any) {
             </div>
             <div className="col-span-3">
               <div className="grid gap-4">
-                {data ? data.map((item: any, index: any) => (
+                {productList ? productList.map((item: any, index: any) => (
                   <FurnitureCard
                     key={index}
                     data={item}

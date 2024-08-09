@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { furnitureCard } from "@/constants/customise";
 import CartCounter from '@/components/customise/CardCounter'
 import AccordonComponent from "./Accordon";
@@ -10,14 +10,20 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const FurnitureCard: React.FC<any> = (props) => {
-    const { name, id, quantity, depth, description, height, width } = props?.data;
+    console.log(props,"props")
+    const { name, id, quantity, depth, description, height, width,price } = props?.data;
+    // const quantityUpdate =props.selectedQuantity
     const data = useSelector((state:any) => state.data.data);
+    const [itemQty, setItemQty] = useState(0)
 
     const [imageSrc, setImageSrc] = useState(`/assets/vectors/${id}.svg`);
 
     const handleError = () => {
         setImageSrc(defaultImage);
     };
+useEffect(() => {
+  console.log(itemQty,"itemQty2")
+}, [itemQty])
 
 
     const { dimension, qty, details, widthUnit, heightUnit, depthUnit, cross } = furnitureCard
@@ -29,12 +35,14 @@ const FurnitureCard: React.FC<any> = (props) => {
                 <span className="mt-1.5 text-customGray font-bold text-sm pb-4">
                     {dimension}{width}{widthUnit}{cross}{height}{heightUnit}{cross}{depth}{depthUnit}{cross}
                 </span>
-                <CartCounter />
+                <div className="text-black text-lg font-bold">{price}</div>
+                <CartCounter setItemQty={setItemQty}/>
                 <AccordonComponent title={details}
                     details={description} />
                 <Image src={buttonImage} alt="button" />
             </div>
-            <div> <Image
+            <div> 
+                <Image
                 src={imageSrc}
                 alt={`Image for ID ${id}`}
                 width={217}

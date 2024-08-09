@@ -9,8 +9,8 @@ const Home = () => {
     return (
       <div className="flex overflow-hidden min-h-screen flex-col bg-zinc-100">
         
-           <Header/>
            <div className="flex-grow">
+           <Header/>
            <DashBoard/>
            </div>
           

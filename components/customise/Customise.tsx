@@ -8,23 +8,33 @@ import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg'
 import EstimateCard from "./EstimateCard";
 import FurnitureCard from "@/app/shared/FurnitureCard";
 import { useGetProductsQuery  } from '@/redux/Slices/products/products';
+import { useParams } from "next/navigation";
 
 export default function CustomizeComponent() {
   const { title, subTitle, buttonText } = CustomizeTitle;
+  const params= useParams();
 
-  const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(null);
+  const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(params.id);
   
-  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [selectedQuantity, setSelectedQuantity] = useState<any[]>([]);
+  const [totalPrice, setTotalPrice] = useState<any>(0);
+
 
   const [productList, setProductList] = useState<any[]>([]);
 
   useEffect(() => {
   if(isSuccess){
-    setProductList(products)
+    setProductList(products?.furnitures)
   } else if(error){
     console.log(error,"error")
   }
   }, [products])
+
+  useEffect(() => {
+   console.log(selectedQuantity,"selectedQuantity1")
+  }, [selectedQuantity])
+  
+  
   return (
     <div className="flex gap-5 ml-5 max-md:flex-col w-full justify-center">
 
@@ -40,7 +50,7 @@ export default function CustomizeComponent() {
             </div>
             <ButtonComponent
               desc={buttonText}
-              isDisable={!selectedItem}
+              isDisable={selectedQuantity?.length==0}
               styleComp="bg-customYellow"
             />
           </div>
@@ -59,10 +69,11 @@ export default function CustomizeComponent() {
             </div>
             <div className="col-span-3">
               <div className="grid gap-4">
-                {productList ? productList.map((item: any, index: any) => (
+                {productList ? productList?.map((item: any, index: any) => (
                   <FurnitureCard
                     key={index}
                     data={item}
+                    selectedQuantity = {setSelectedQuantity}
                   />
                 )) : null}
               </div>

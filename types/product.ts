@@ -1,9 +1,4 @@
-export interface EstimateCardProps {
-    itemPrice: number;
-    }
-    
-    
-    
+
     export interface CustomiseProps {
         depth: number
         description: string

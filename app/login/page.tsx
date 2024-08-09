@@ -1,12 +1,10 @@
-import Login from '@/components/Login/Login'
+import Login from '@/components/AuthPage/Login'
 import React from 'react'
 
-const Orders:React.FC = () => {
+const page = () => {
   return (
-    <>
     <Login/>
-    </>
   )
 }
 
-export default Orders
+export default page

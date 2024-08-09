@@ -1,25 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import LoginForm from "../Form/Form";
-import Link from "next/link";
-import loginBanner from "../../public/assets/images/loginBanner.png"
-import Logo from "@/components/Logo/Logo";
-import userIcon from "../../public/assets/images/user.png";
-import passwordIcon from "../../public/assets/images/password.png";
+import LoginForm from "@/components/Form/page";
+import loginBanner from "@/public/assets/images/loginBanner.png"
+import Logo from "@/components/Logo/page";
 import { FormField } from "@/types/login";
-import Banner from "@/components/Banner/Banner";
-import FormLayout from "@/components/FormLayout/FormLayout";
+import Banner from "@/components/Banner/page";
+import FormLayout from "@/components/FormLayout/page";
 import { useLoginUserMutation } from "@/redux/Slices/login/login";
-import { loginContent } from "@/constants/login";
-
+import { loginContent } from "@/constants/formContent";
+import { loginFields } from "@/constants/formFields";
 const Login: React.FC = () => {
   const [errors, setErrors] = useState({});
-  const formFields: FormField[] = [
-    { name: "username", placeholder: "Username or Email", type: "text", icon: userIcon.src },
-    { name: "password", placeholder: "Password", type: "password", icon: passwordIcon.src },
-  ];
-
+  const formFields: FormField[] =loginFields
   const [loginAuth, { isLoading, error, data }] = useLoginUserMutation();
 
   const validateEmail = (email: string) => {
@@ -48,7 +41,7 @@ const Login: React.FC = () => {
       try {
         const result = await loginAuth({ email: username, password }).unwrap();
         console.log('Login successful:', result);
-        window.location.href = "/";
+        window.location.href = "/home";
       } catch (error) {
         console.error('Error:', error);
       }

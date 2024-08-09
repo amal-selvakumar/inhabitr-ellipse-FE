@@ -58,7 +58,7 @@ const Form = <T extends { [key: string]: string }>({
               value={formValues[field.name as keyof T] || ""}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="pl-2 pr-4 py-5 w-full text-xs font-medium bg-[#F1F1F1] text-[#676767] outline-none"
+              className="pl-2 pr-4 py-4 w-full text-xs font-medium bg-[#F1F1F1] text-[#676767] outline-none"
             />
             {field.type === "password" && (
               <div className={`flex items-center pr-3 cursor-pointer ${errors[field.name as keyof typeof errors] ? "text-red-500" : "text-gray-400"}`} onClick={() => handleToggle(field.name)}>

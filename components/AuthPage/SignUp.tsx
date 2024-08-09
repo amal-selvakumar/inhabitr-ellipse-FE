@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import SignUpForm from "../../components/Form/page";
-import loginBanner from "../../public/assets/loginBanner.png"
+import loginBanner from "../../public/assets/images/loginBanner.png"
 import Logo from "@/components/Logo/page";
 import { FormField } from "@/types/login";
 import { signUpContent } from "@/constants/formContent";

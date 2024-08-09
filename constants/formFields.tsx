@@ -1,5 +1,5 @@
-import userIcon from "../public/assets/user.png";
-import passwordIcon from "../public/assets/password.png";
+import userIcon from "../public/assets/images/user.png";
+import passwordIcon from "../public/assets/images/password.png";
 export const signUpFields=[
     { name: "contactName", placeholder: "Contact Name", type: "text" },
     { name: "username", placeholder: "Contact Email", type: "email" },

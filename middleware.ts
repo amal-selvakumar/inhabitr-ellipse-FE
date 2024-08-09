@@ -1,7 +1,7 @@
 import { sessionStatus } from "./utils/session";
 import { NextRequest, NextResponse } from "next/server";
  
-const allowedOrigins = ['http://localhost:3300']
+const allowedOrigins = ['http://localhost:3300','http://54.145.55.154:3300' ]
  
 const corsOptions = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',

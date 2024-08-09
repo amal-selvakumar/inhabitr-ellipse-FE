@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import LoginForm from "../../components/Form/page";
-import loginBanner from "../../public/assets/loginBanner.png"
+import loginBanner from "../../public/assets/images/loginBanner.png"
 import Logo from "@/components/Logo/page";
 import { FormField } from "@/types/login";
 import Banner from "@/components/Banner/page";

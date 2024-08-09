@@ -3,7 +3,7 @@ import Banner from "../Banner/page";
 import FormLayout from "../FormLayout/page";
 import Logo from "../Logo/page";
 import GifComponent from "./GifComponent";
-import loginBanner from "../../public/assets/loginBanner.png";
+import loginBanner from "../../public/assets/images/loginBanner.png";
 
 
 const page = () => {

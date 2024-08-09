@@ -6,7 +6,7 @@ import { Contract } from "@/constants/checkout";
 import ButtonComponent from "@/app/shared/ButtonComponent";
 import BorderButton from "@/app/shared/BorderButton";
 import AgreeTerms from "@/app/shared/AgreeTerms";
-import { formatCurrency } from '@/utils/formatCurrency';
+import { formatCurrency } from '@/utils/common';
 
 
 

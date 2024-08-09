@@ -4,40 +4,52 @@ import { CustomizeTitle } from '@/constants/customise';
 import ButtonComponent from "@/app/shared/ButtonComponent";
 import DarkCard from "@/app/shared/DarkCard";
 import Image from "next/image";
-import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg'
+import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg';
 import EstimateCard from "./EstimateCard";
 import FurnitureCard from "@/app/shared/FurnitureCard";
-import { useGetProductsQuery  } from '@/redux/Slices/products/products';
+import { useGetProductsQuery } from '@/redux/Slices/products/products';
 import { useParams } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setTotal } from "@/redux/Reducers/furnitures";
+import { checkItems } from "@/utils/common";
 
 export default function CustomizeComponent() {
   const { title, subTitle, buttonText } = CustomizeTitle;
-  const params= useParams();
+  const params = useParams();
+  const dispatch = useDispatch();
 
-  const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(params.id);
-  
-  const [selectedQuantity, setSelectedQuantity] = useState<any[]>([]);
-  const [totalPrice, setTotalPrice] = useState<any>(0);
+  const { data: products, error, isLoading, isSuccess } = useGetProductsQuery(params.id);
 
+  const [selectedQuantities, setSelectedQuantities] = useState<any>({});
 
   const [productList, setProductList] = useState<any[]>([]);
 
   useEffect(() => {
-  if(isSuccess){
-    setProductList(products?.furnitures)
-  } else if(error){
-    console.log(error,"error")
-  }
-  }, [products])
+    if (isSuccess) {
+      setProductList(products?.furnitures);
+    } else if (error) {
+      console.log(error, "error");
+    }
+  }, [products]);
 
   useEffect(() => {
-   console.log(selectedQuantity,"selectedQuantity1")
-  }, [selectedQuantity])
-  
-  
+    const total = productList?.reduce((acc, item) => {
+      const { id, price } = item;
+      const quantity = selectedQuantities[id]?.quantity || 0;
+      return acc + (price * quantity);
+    }, 0) || 0;
+    dispatch(setTotal(total))
+  }, [selectedQuantities, productList]);
+
+  const handleQuantityChange = (id: string, price: number, quantity: number) => {
+    setSelectedQuantities((prev: any) => ({
+      ...prev,
+      [id]: { price, quantity }
+    }));
+  };
+
   return (
     <div className="flex gap-5 max-md:flex-col w-full justify-center">
-
       <div className="flex flex-col max-md:ml-0 max-md:w-full w-full py-14 px-20">
         <div className="flex flex-col items-start self-center px-20 pt-24 pb-14 mt-6 w-full bg-white max-md:px-5">
           <Stepper activeTab={2} />
@@ -50,7 +62,7 @@ export default function CustomizeComponent() {
             </div>
             <ButtonComponent
               desc={buttonText}
-              isDisable={selectedQuantity?.length==0}
+              isDisable={checkItems(selectedQuantities)}
               styleComp="bg-customYellow"
             />
           </div>
@@ -61,19 +73,19 @@ export default function CustomizeComponent() {
                   <Image src={FloorPlan} alt="floor plan" />
                 </div>
                 <div>
-                  <DarkCard styleComp="p-8">
-                    <EstimateCard itemPrice={79475.00} />
+                  <DarkCard styleComp="p-8 2xl:w-[95%]">
+                    <EstimateCard />
                   </DarkCard>
                 </div>
               </div>
             </div>
             <div className="col-span-3">
               <div className="grid gap-4">
-                {productList ? productList?.map((item: any, index: any) => (
+                {productList ? productList.map((item: any, index: any) => (
                   <FurnitureCard
                     key={index}
                     data={item}
-                    selectedQuantity = {setSelectedQuantity}
+                    onQuantityChange={handleQuantityChange}
                   />
                 )) : null}
               </div>

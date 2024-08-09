@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { OrderSummaryProps } from '@/types/checkout'
 import { OrderSummary } from "@/constants/checkout";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/common";
 
 
 

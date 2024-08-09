@@ -9,3 +9,11 @@ export const formatCurrency = (amount: number, currency: string = 'USD'): string
   
     return new Intl.NumberFormat('en-US', options).format(amount);
   };
+  export const checkItems = (items:any) => {
+    if (Object.keys(items).length === 0) {
+      return true; 
+    }
+    const hasQuantityGreaterThanOne = Object.values(items).some((item:any) => item.quantity >= 1);
+  
+    return !hasQuantityGreaterThanOne; 
+  };

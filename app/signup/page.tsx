@@ -4,7 +4,7 @@ import SignUpForm from "../../components/Form/page";
 import loginBanner from "../../public/assets/loginBanner.png"
 import Logo from "@/components/Logo/page";
 import { FormField } from "@/types/login";
-import { signUpContent } from "@/constants/login";
+import { signUpContent } from "@/constants/formContent";
 import Banner from "@/components/Banner/page";
 import FormLayout from "@/components/FormLayout/page";
 import { useSignupUserMutation } from "@/redux/Slices/login/login";
@@ -64,7 +64,7 @@ const page: React.FC = () => {
                 console.log("jkjkjkj")
                 const result = await signUpAuth({ email: username, password, contactName, contactNumber }).unwrap();
                 console.log('SignUp successful:', result);
-                window.location.href = "/";
+                window.location.href = "/success";
             } catch (error) {
                 console.error('Error:', error);
             }

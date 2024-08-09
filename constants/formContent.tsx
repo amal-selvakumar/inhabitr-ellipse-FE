@@ -16,3 +16,9 @@ export const signUpContent = {
 </a>)
 }
 
+export const successPageContent= {
+    heading: "Thank you!",
+    subheading: "Your submission has been received",  
+    
+}
+

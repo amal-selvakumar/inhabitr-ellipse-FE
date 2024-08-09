@@ -11,7 +11,7 @@ import { FormField } from "@/types/login";
 import Banner from "@/components/Banner/page";
 import FormLayout from "@/components/FormLayout/page";
 import { useLoginUserMutation } from "@/redux/Slices/login/login";
-import { loginContent } from "@/constants/login";
+import { loginContent } from "@/constants/formContent";
 
 const Login: React.FC = () => {
   const [errors, setErrors] = useState({});

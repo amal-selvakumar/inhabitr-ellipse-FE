@@ -1,12 +1,12 @@
 "use client"
 import React, { useState } from "react";
-import SignUpForm from "../../components/Form/page";
+import SignUpForm from "../../components/Form/Form";
 import loginBanner from "../../public/assets/loginBanner.png"
-import Logo from "@/components/Logo/page";
+import Logo from "@/components/Logo/Logo";
 import { FormField } from "@/types/login";
 import { signUpContent } from "@/constants/login";
-import Banner from "@/components/Banner/page";
-import FormLayout from "@/components/FormLayout/page";
+import Banner from "@/components/Banner/Banner";
+import FormLayout from "@/components/FormLayout/FormLayout";
 import { useSignupUserMutation } from "@/redux/Slices/login/login";
 
 const page: React.FC = () => {

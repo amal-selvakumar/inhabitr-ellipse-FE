@@ -3,6 +3,7 @@ import React from "react";
 import headerIcon from '@/public/assets/vectors/InhabitrIcon.svg'
 import Image from "next/image"
 import BorderButton from "./BorderButton";
+import Link from "next/link";
 
 const Header: React.FC = (children) => {
   return (
@@ -13,9 +14,12 @@ const Header: React.FC = (children) => {
 
       <div className=" grid grid-flow-col auto-cols-max gap-x-5 items-center justify-end pr-10">
         {menuItems.map((item, index) => (
-          <div key={index} className="hidden md:block">
+        <>{item==='ACCOUNT' ?<Link href={'/account'}>
+          <div key={index} className="hidden md:block"> {item}</div>
+        </Link>:
+           <div key={index} className="hidden md:block">
             {item}
-          </div>
+          </div>}</>
         ))}
         <BorderButton desc=" furnish now"  />
       </div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import eyeIcon from "../../public/assets/images/eye.png";
-import Input from "../Input/page";
+import Input from "../Input/Input";
 import { LoginFormProps, FormField } from "@/types/login";
 
 const Form = <T extends { [key: string]: string }>({

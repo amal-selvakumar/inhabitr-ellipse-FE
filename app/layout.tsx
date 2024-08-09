@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Libre_Franklin } from '@next/font/google';
 import "./globals.css";
-import Header from "@/components/Navbar/page";
+import Header from "@/components/Navbar/Navbar";
 import { sessionStatus } from "@/utils/session";
 import StoreProvider from "./StoreProvider";
 

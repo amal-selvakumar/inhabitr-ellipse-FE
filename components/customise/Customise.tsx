@@ -1,5 +1,5 @@
 import Stepper from "@/app/shared/Stepper";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CustomizeTitle } from '@/constants/customise';
 import ButtonComponent from "@/app/shared/ButtonComponent";
 import DarkCard from "@/app/shared/DarkCard";
@@ -7,12 +7,24 @@ import Image from "next/image";
 import FloorPlan from '@/public/assets/vectors/floorPlanSvg.svg'
 import EstimateCard from "./EstimateCard";
 import FurnitureCard from "@/app/shared/FurnitureCard";
+import { useGetProductsQuery  } from '@/redux/Slices/products/products';
 
-export default function CustomizeComponent({data}: any) {
+export default function CustomizeComponent() {
   const { title, subTitle, buttonText } = CustomizeTitle;
 
+  const { data: products, error, isLoading,isSuccess } = useGetProductsQuery(null);
+  
   const [selectedItem, setSelectedItem] = useState<any>(null);
 
+  const [productList, setProductList] = useState<any[]>([]);
+
+  useEffect(() => {
+  if(isSuccess){
+    setProductList(products)
+  } else if(error){
+    console.log(error,"error")
+  }
+  }, [products])
   return (
     <div className="flex gap-5 ml-5 max-md:flex-col w-full justify-center">
 
@@ -47,7 +59,7 @@ export default function CustomizeComponent({data}: any) {
             </div>
             <div className="col-span-3">
               <div className="grid gap-4">
-                {data ? data.map((item: any, index: any) => (
+                {productList ? productList.map((item: any, index: any) => (
                   <FurnitureCard
                     key={index}
                     data={item}

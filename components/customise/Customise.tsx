@@ -26,10 +26,10 @@ export default function CustomizeComponent() {
   }
   }, [products])
   return (
-    <div className="flex gap-5 ml-5 max-md:flex-col w-full justify-center">
+    <div className="flex gap-5 max-md:flex-col w-full justify-center">
 
-      <div className="flex flex-col max-md:ml-0 max-md:w-full">
-        <div className="flex flex-col items-start self-center px-20 pt-24 pb-14 mt-6 w-full bg-white max-w-[1302px] max-md:px-5 max-md:max-w-full">
+      <div className="flex flex-col max-md:ml-0 max-md:w-full w-full py-14 px-20">
+        <div className="flex flex-col items-start self-center px-20 pt-24 pb-14 mt-6 w-full bg-white max-md:px-5">
           <Stepper activeTab={2} />
           <div className="mt-12 text-5xl font-semibold uppercase text-black max-md:mt-10 max-md:max-w-full max-md:text-4xl">
             {title}

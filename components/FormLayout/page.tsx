@@ -28,10 +28,10 @@ const FormLayout: React.FC<CardComponentProps> = ({ content, component }) => {
                   
                     <p className="mt-7 text-base font-medium leading-5 text-[#837a7a] flex items-center justify-center gap-2">
                         {content.formFooterText}
-                        <Link href={'/signup'}>
-                        <span className="text-yellow-600">
+                        <Link href={'/signup'} className="text-yellow-600">
+                       
                             {content.formFooterLink}
-                        </span>
+                       
                         </Link>
                         <br />
                     </p>

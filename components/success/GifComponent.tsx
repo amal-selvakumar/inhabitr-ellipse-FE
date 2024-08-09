@@ -2,6 +2,7 @@
 import React from 'react'
 import Lottie from "lottie-react";
 import GifFile from '@/constants/success.json'
+import Link from 'next/link';
 
 const GifComponent = () => {
     return (
@@ -18,7 +19,7 @@ const GifComponent = () => {
             <p className='text-base font-medium mt-3 leading-5 text-center text-black'>We`ll handle the rest with our technolagy,and one of our team member contact you shortly.</p>
 
             <button  className="py-2.5 mt-8 max-w-full text-sm md:text-base font-medium items-center text-center text-black  bg-amber-300 rounded-3xl w-[216px] max-md:px-5">
-                <a href='/' className=''>BACK TO HOMEPAGE</a>
+                <Link href='/' className=''>BACK TO HOMEPAGE</Link>
             </button>
         </div>
     );

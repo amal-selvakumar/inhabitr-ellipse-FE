@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import LoginForm from "../../components/Form/page";
-import loginBanner from "../../public/assets/loginBanner.png"
+import LoginForm from "@/components/Form/page";
+import loginBanner from "@/public/assets/images/loginBanner.png"
 import Logo from "@/components/Logo/page";
 import { FormField } from "@/types/login";
 import Banner from "@/components/Banner/page";
@@ -41,7 +41,7 @@ const Login: React.FC = () => {
       try {
         const result = await loginAuth({ email: username, password }).unwrap();
         console.log('Login successful:', result);
-        window.location.href = "/";
+        window.location.href = "/home";
       } catch (error) {
         console.error('Error:', error);
       }
